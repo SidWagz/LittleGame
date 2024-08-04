@@ -1,6 +1,6 @@
 from . import Move
 from .user import user_strategy
-from strategy import Strategy
+from ..strategy import Strategy
 
 
 def move_victory(move_one: Move, move_two: Move) -> tuple[bool, bool]:

@@ -1,8 +1,8 @@
 from enum import Enum
 from itertools import cycle, islice, repeat
 
-from game.gameplay import play_game_cli
-from strategy import Strategy, ALL_STRATEGIES
+from .game.gameplay import play_game_cli
+from .strategy import Strategy, ALL_STRATEGIES
 
 
 def play_games(no_of_games: int, strategies: list[Strategy] = None) -> None:

@@ -1,4 +1,4 @@
-from game import Move
+from ..game import Move
 from typing import Callable
 
 

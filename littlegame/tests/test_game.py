@@ -1,7 +1,7 @@
 import unittest
 
-from game import Move
-from game.gameplay import move_victory
+from littlegame.game import Move
+from littlegame.game.gameplay import move_victory
 
 
 class TestGameplay(unittest.TestCase):

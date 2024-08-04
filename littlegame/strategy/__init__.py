@@ -1,9 +1,8 @@
 from abc import abstractmethod
 from enum import Enum
 from typing import Callable, Union
-import warnings
 
-from game import Move
+from ..game import Move
 from .base import StatefulStrategy
 from .random import random_move
 from .singlemove import single_move_facade

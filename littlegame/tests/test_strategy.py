@@ -1,8 +1,9 @@
 import unittest
 
-from game import Move, ALL_MOVES
-from strategy.random import random_move
-from strategy.singlemove import rock_move, paper_move, scissors_move, single_move_facade
+from littlegame.game import Move, ALL_MOVES
+from littlegame.strategy.random import random_move
+from littlegame.strategy.singlemove import rock_move, paper_move, scissors_move, single_move_facade
+from littlegame.strategy.vengence import VengenceStrategy
 
 
 class TestSingleMoveStrategy(unittest.TestCase):
@@ -48,6 +49,22 @@ class TestRandomStrategy(unittest.TestCase):
         self.assertIn(new_move, ALL_MOVES)
         new_move = random_move()
         self.assertIn(new_move, ALL_MOVES)
+
+
+class TestVengenceStrategy(unittest.TestCase):
+
+    def test_vengence_move(self):
+        strategy = VengenceStrategy()
+        counter_moves = { 
+            Move.ROCK: Move.SCISSORS,
+            Move.SCISSORS: Move.PAPER,
+            Move.PAPER: Move.ROCK
+        }
+        move = strategy()
+        self.assertIn(move, ALL_MOVES)
+        strategy.push_feedback(False)
+        new_move = strategy()
+        self.assertEqual(new_move, counter_moves[move]) 
 
 
 if __name__ == '__main__':

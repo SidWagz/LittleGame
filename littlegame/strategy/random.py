@@ -1,6 +1,6 @@
 import random
 
-from game import Move, ALL_MOVES
+from ..game import Move, ALL_MOVES
 
 
 def random_move() -> Move:

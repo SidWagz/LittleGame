@@ -1,4 +1,4 @@
-from game import Move
+from ..game import Move
 from . import StatefulStrategy
 from .random import random_move
 

@@ -1,7 +1,7 @@
 from abc import abstractmethod
 import warnings
 
-from game import Move
+from ..game import Move
 
 
 class StatefulStrategy:
