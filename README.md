@@ -18,15 +18,15 @@ It can be played for anynumber of rounds and you cna choose the strategies the c
 
 <p>Invoke a 3-round game, computer using a Random-choice strategy on every match.</p>
 
-`python main.py --rounds=3 --strategies Random`
+`python -m littlegame --rounds=3 --strategies Random`
 
 <p>Invoke a 3-round game, computer using a Random-choice strategy on the first match, followed by a fixed Rock and Paper move strategy for the second and third matches respectively.</p>
 
-`python main.py --rounds=3 --strategies Random Rock Paper`
+`python -m littlegame --rounds=3 --strategies Random Rock Paper`
 
 <p>Invoke a 5-round game, computer cycling in-order between using a Random-choice strategy, followed by a fixed Rock strategy, and then a fixed Scissors strategy.<br/>For clarity this would lead into a 5-match setups where the computer plays strategies in the order of [Random, Rock, Scissors, Random, Rock]</p>
 
-`python main.py --rounds=5 --strategies Random Rock`
+`python -m littlegame --rounds=5 --strategies Random Rock`
 
 
 # Development
@@ -38,7 +38,7 @@ It can be played for anynumber of rounds and you cna choose the strategies the c
 <p>The tests for the entire project are under `tests` directory.
 To run your version of the tests, run the following from the terminal</p>
 
-`python -m unittest discover tests`
+`python -m unittest discover littlegame/tests`
 
 
 # Known Issues

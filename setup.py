@@ -6,6 +6,6 @@ setup(
    description='A little game for everyone to contribute into and play',
    author='Siddharth Wagle',
    author_email='siddharthwagle1@gmmail.com',
-   packages=['foo'],  #same as name
+   packages=['littlegame'],  #same as name
    install_requires=['wheel'], #external packages as dependencies
 )
