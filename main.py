@@ -24,4 +24,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     print()
-    play_games(args.rounds)
+    play_games(args.rounds, args.strategies)

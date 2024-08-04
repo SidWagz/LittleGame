@@ -3,7 +3,7 @@ from .user import user_strategy
 from strategy import Strategy
 
 
-def _move_victory(move_one: Move, move_two: Move) -> tuple[bool, bool]:
+def move_victory(move_one: Move, move_two: Move) -> tuple[bool, bool]:
     if move_one == move_two:
         return (False, False)
     match (move_one):
@@ -19,7 +19,7 @@ def play_game(strategy: Strategy = Strategy.RANDOM) -> None:
     user_move = user_strategy()
     computer_strategy = strategy.get_strategy()
     computer_move = computer_strategy()
-    user_wins, computer_wins = _move_victory(user_move, computer_move)
+    user_wins, computer_wins = move_victory(user_move, computer_move)
     print(f"User played {user_move}, computer played {computer_move}")
     if user_wins:
         print("User WON this round!")
