@@ -48,6 +48,5 @@ def user_strategy() -> Move:
         print("The choice you entered does not seem to be a legal move\nTry again\n")
         user_choice = _user_input()
     else:
-        # print("\nQuiting application as you have entered too many illegal move")
         raise ValueError("Quiting application as you have entered too many illegal move")
     return Move(user_choice)
