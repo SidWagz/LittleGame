@@ -6,12 +6,23 @@ from .strategy import Strategy, ALL_STRATEGIES
 
 
 def play_games(no_of_games: int, strategies: list[Strategy] = None) -> None:
+    """
+    This runs all the match setups and prints the final score of the current setup.
+    """
+    
     if not strategies:
         strategies = repeat(Strategy.RANDOM, no_of_games)
     else:
         strategies = islice(cycle(strategies), 0, no_of_games)
-    for strategy in strategies:
-        play_game_cli(strategy)
+    scores = []
+    scores = [play_game_cli(strategy) for strategy in strategies]
+    total_score = scores[0]
+    for score in scores[1:]:
+        total_score += score
+    
+    print("Final scores are:")
+    for key, value in total_score.items():
+        print(key, ":", value)
 
 
 if __name__ == '__main__':

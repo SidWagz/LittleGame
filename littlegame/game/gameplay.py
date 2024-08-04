@@ -1,3 +1,5 @@
+from collections import defaultdict, Counter
+
 from . import Move
 from .user import user_strategy
 from ..strategy import Strategy
@@ -34,7 +36,7 @@ def move_victory(move_one: Move, move_two: Move) -> tuple[bool, bool]:
             return (True, False) if move_two == Move.PAPER else (False, True)
 
 
-def play_game_cli(strategy: Strategy = Strategy.RANDOM) -> None:
+def play_game_cli(strategy: Strategy = Strategy.RANDOM) -> Counter:
     """
     Runs the game simulation on cli waiting for user input and running the computer selected strategy.
     The result of the game simulation will be printed on CLI.
@@ -43,8 +45,14 @@ def play_game_cli(strategy: Strategy = Strategy.RANDOM) -> None:
     ----------
     strategy: Strategy
         The strategy that the computer player will run (defaults to Strategy.Random)
+        
+    Returns
+    -------
+    Counter
+        A dictionary containing the score for this round
     """
     
+    score = defaultdict(int)
     user_move = user_strategy()
     computer_strategy = strategy.runner
     computer_move = computer_strategy()
@@ -53,8 +61,12 @@ def play_game_cli(strategy: Strategy = Strategy.RANDOM) -> None:
     print(f"User played {user_move}, computer played {computer_move}")
     if user_wins:
         print("User WON this round!")
+        score['User wins'] += 1
     elif computer_wins:
         print("Computer WON this round!")
+        score['Computer wins'] += 1
     else:
         print("Round ends in a draw")
+        score['Draws'] += 1
     print()
+    return Counter(score)
