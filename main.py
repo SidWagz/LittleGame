@@ -1,7 +1,7 @@
 from enum import Enum
 from itertools import cycle, islice, repeat
 
-from game.gameplay import play_game
+from game.gameplay import play_game_cli
 from strategy import Strategy, ALL_STRATEGIES
 
 
@@ -11,7 +11,7 @@ def play_games(no_of_games: int, strategies: list[Strategy] = None) -> None:
     else:
         strategies = islice(cycle(strategies), 0, no_of_games)
     for strategy in strategies:
-        play_game(strategy)
+        play_game_cli(strategy)
 
 
 if __name__ == '__main__':
