@@ -39,3 +39,10 @@ It can be played for anynumber of rounds and you cna choose the strategies the c
 To run your version of the tests, run the following from the terminal</p>
 
 `python -m unittest discover tests`
+
+
+# Known Issues
+
+<h3>Stateful strategies</h3>
+<p>When used as the only strategy, there are no side effects.</p>
+<p>But when run in conjuction ot other strategies, they don't keep track of the wins/losses of other matches. It only tracks the matches the given strategy has played for.</p>

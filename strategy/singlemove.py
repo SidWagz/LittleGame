@@ -1,4 +1,5 @@
 from game import Move
+from typing import Callable
 
 
 def rock_move() -> Move:
@@ -40,7 +41,7 @@ def scissors_move() -> Move:
     return Move.SCISSORS
 
 
-def single_move_facade(move_name: str) -> callable[[str], Move]:
+def single_move_facade(move_name: str) -> Callable[[str], Move]:
     """
     Factory method that provides the corresponding move generator.
     
@@ -51,7 +52,7 @@ def single_move_facade(move_name: str) -> callable[[str], Move]:
     
     Returns
     -------
-    callable[[str], Move]
+    Callable[[str], Move]
         A move strategy callable corresponding to the function parameter.
         
     Raises

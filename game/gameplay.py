@@ -46,9 +46,10 @@ def play_game_cli(strategy: Strategy = Strategy.RANDOM) -> None:
     """
     
     user_move = user_strategy()
-    computer_strategy = strategy.get_strategy()
+    computer_strategy = strategy.runner
     computer_move = computer_strategy()
     user_wins, computer_wins = move_victory(user_move, computer_move)
+    strategy.feedback(computer_wins)
     print(f"User played {user_move}, computer played {computer_move}")
     if user_wins:
         print("User WON this round!")
